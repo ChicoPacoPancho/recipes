@@ -170,7 +170,7 @@ async def _call_openai_compatible(base_url, model, api_key, user_message):
     url = f"{base_url.rstrip('/')}/v1/chat/completions"
     headers = {}
     if api_key:
-        headers['Authorization'] = f'******'
+        headers['Authorization'] = 'Bearer ' + api_key
 
     payload = {
         "model": model,
