@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium
+           transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-cookbook-500 text-white hover:bg-cookbook-600 focus:ring-cookbook-500
+           active:bg-cookbook-700;
+  }
+  .btn-secondary {
+    @apply btn bg-gray-200 text-gray-700 hover:bg-gray-300 focus:ring-gray-400;
+  }
+  .btn-danger {
+    @apply btn bg-red-500 text-white hover:bg-red-600 focus:ring-red-500;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-600 hover:bg-gray-100 focus:ring-gray-400;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+  .input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-cookbook-500 focus:border-transparent
+           bg-white text-gray-900 placeholder-gray-400;
+  }
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-primary {
+    @apply badge bg-cookbook-100 text-cookbook-800;
+  }
+  .badge-computed {
+    @apply badge bg-amber-100 text-amber-800;
+  }
+  .page-container {
+    @apply max-w-2xl mx-auto px-4 pb-20 pt-4;
+  }
+}
+
+/* Cooking mode specific styles */
+.cooking-mode {
+  @apply fixed inset-0 bg-gray-900 text-white z-50 overflow-hidden;
+}
+
+/* Hide scrollbar in certain views */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Sticker animation */
+@keyframes sticker-pop {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.sticker-animate {
+  animation: sticker-pop 0.3s ease-out;
+}

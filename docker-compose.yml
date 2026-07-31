@@ -1,0 +1,24 @@
+services:
+  cookbook:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - cookbook-data:/app/data
+    environment:
+      - DATA_DIR=/app/data
+    restart: unless-stopped
+
+  # Optional: Ollama for local AI recipe extraction
+  # Uncomment to enable local AI (requires ~4GB RAM)
+  # ollama:
+  #   image: ollama/ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama-data:/root/.ollama
+  #   restart: unless-stopped
+
+volumes:
+  cookbook-data:
+  # ollama-data:
