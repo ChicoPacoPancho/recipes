@@ -25,7 +25,7 @@ def start_session():
 @bp.route('/api/cooking/<int:session_id>/stop', methods=['PUT'])
 def stop_session(session_id):
     """Stop a cooking session and record duration."""
-    data = request.get_json() or {}
+    data = request.get_json(silent=True) or {}
 
     with get_db() as db:
         session = dict_from_row(

@@ -22,7 +22,7 @@ def get_shopping_list():
 @bp.route('/api/shopping/add-recipe/<int:recipe_id>', methods=['POST'])
 def add_recipe_to_shopping(recipe_id):
     """Add all ingredients from a recipe to the shopping list."""
-    data = request.get_json() or {}
+    data = request.get_json(silent=True) or {}
     scale = data.get('scale', 1.0)
 
     with get_db() as db:
